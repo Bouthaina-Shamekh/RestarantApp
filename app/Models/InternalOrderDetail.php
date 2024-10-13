@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class InternalOrderDetail extends Model
+{
+    use HasFactory;
+    protected $guarded = [];
+
+    public function internalOrder()
+    {
+        return $this->belongsTo(InternalOrder::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+}

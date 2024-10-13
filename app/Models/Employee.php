@@ -45,4 +45,16 @@ class Employee extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function discountCode()
+    {
+        return $this->hasMany(DiscountCode::class);
+    }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
+
 }

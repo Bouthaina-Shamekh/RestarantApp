@@ -14,7 +14,7 @@ class DeliveryAgent extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable , SoftDeletes;
 
     protected $guard = 'deliveryAgent';
-    
+
     protected $fillable = [
         'name',
         'email',
@@ -45,4 +45,14 @@ class DeliveryAgent extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function outerOrder()
+    {
+        return $this->belongsToMany(OuterOrder::class);
+    }
+
+    public function location()
+    {
+        return $this->belongsToMany(Location::class);
+    }
 }
